@@ -32,3 +32,23 @@ git status
 ```bash
 git commit -m "first commit"
 ```
+
+## remote add
+
+- 원격저장소의 주소를 저장하는 명령어
+
+```bash
+git remote add {remote_name} {remote_url}
+```
+
+
+## push
+
+- 원격저장소로 브랜치를 업로드 하는 명령어
+
+```bash
+git push origin master
+git push {remote_name} {branch_name}
+```
+
+
