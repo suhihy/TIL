@@ -27,6 +27,7 @@ git status
 
 ## commit
 - staging area에 올라간 내용을 스냅샷 찍기
+    - `-m` 옵션을 통해 커밋메세지를 바로 입력가능
 
 ```bash
 git commit -m "first commit"
