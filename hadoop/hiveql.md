@@ -1,5 +1,51 @@
 book data
 ============= 
+
+
+(생성)
+```
+CREATE EXTERNAL TABLE Books (
+    ISBN STRING,
+    Title STRING,
+    Author STRING,
+    Year_Publication DATE,
+    Publisher STRING,
+    URL_S STRING,
+    URL_M STRING,
+    URL_L STRING
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+    "separatorChar" = ";",  #구분 기준 ;
+    "quoteChar"     = "\"", #csv 파일 내부 큰따옴표 삭제
+    "escapeChar"    = "\\" 
+)
+STORED AS TEXTFILE
+LOCATION '/user/ubunto/input/Books'
+TBLPROPERTIES ('skip.header.line.count'='1');
+```
+
+(표 확인)
+```
+SELECT * FROM users_view LIMIT 10;
+SELECT * FROM books_view LIMIT 10;
+SELECT * FROM ratings_view LIMIT 10;
+```
+
+(삭제)
+```
+DROP TABLE ....;
+DROP VIEWS ....;
+```
+
+(형변환 - VIEWS)
+```
+CREATE VIEW books_view AS
+SELECT ISBN, Title, Author, CAST(Year_Publication AS INT) as year, Publisher
+FROM books;
+```
+
+
 1. Books 테이블에서 중복된 ISBN 확인
 
 SELECT
