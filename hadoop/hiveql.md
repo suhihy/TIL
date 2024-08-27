@@ -224,3 +224,20 @@ GROUP BY t.year
 ORDER BY 
 number_of_books DESC;
 ```
+2)서브쿼리 사용해서 푸는 법
+```
+SELECT b.year_of_publication, COUNT(b.book_title) AS cnt_book_title
+FROM books b
+JOIN 
+    (SELECT a.isbn, 
+            SUM(c.book_rating) / COUNT(c.book_rating) AS avg_rating
+     FROM ratings c
+     JOIN books a
+     ON a.isbn = c.isbn
+     GROUP BY a.isbn
+     ORDER BY avg_rating DESC
+     LIMIT 10) r
+ON b.isbn = r.isbn
+GROUP BY b.year_of_publication
+ORDER BY cnt_book_title DESC;
+```
