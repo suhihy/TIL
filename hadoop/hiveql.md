@@ -1,8 +1,45 @@
 book data
 ============= 
+*hive 실행 전 hadoop 항상 먼저 start
+```
+경로 ubunto@2-15~Hadoop어쩌구 sbin/start-all.sh
+```
+hive 실행
+```
+hiveserver2 --hiveconf hive.server2.thrift.port=10000 --hiveconf hive.root.logger=DEBUG,consol
+```
+새로운 터미널에서 beeline 실행
+```
+beeline
+beeline> !connect jdbc:hive2://localhost:10000
+```
+
+기존 터미널에서 파일 하둡으로 가져오기
+```
+input 폴더 안에 books/users/book-ratings 파일 생성
+
+hdfs dfs -mkdir input/Books
+hdfs dfs -mkdir input/Users
+hdfs dfs -mkdir input/Book_Ratings
+
+하둡으로 dataset 파일 옮기기(경로 유의)
+
+hdfs dfs -put ~/dmf/dataset/Books.csv input/Books/Books
+hdfs dfs -put ~/dmf/dataset/Users.csv input/Users/Users
+hdfs dfs -put ~/dmf/dataset/Book-Ratings.csv input/Book_Ratings/Book_Ratings
+
+파일 삭제 방법
+hdfs dfs -rm input/Books/Books.csv
+hdfs dfs -rm input/Users/Users.csv
+hdfs dfs -rm input/Book-Ratings
+
+*폴더 삭제 시
+-rm -r ~~~
+```
 
 
-(생성)
+
+(테이블 생성)
 ```
 CREATE EXTERNAL TABLE Books (
     ISBN STRING,
