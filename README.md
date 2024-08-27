@@ -1,11 +1,11 @@
 Hadoop
 ============= 
-TIL\hadoop\hadoop.md
+[hadoop](/hadoop/hadoop.md)
 
 Mapreduce
 ============= 
-TIL\hadoop\Mapreduce.md
+[Mapreduce](/hadoop/Mapreduce.md)
 
 hiveql
 ============= 
-TIL\hadoop\hiveql.md
+[hiveql](/hadoop/hiveql.md)
