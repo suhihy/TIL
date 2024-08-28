@@ -12,4 +12,4 @@ hiveql
 
 automation
 ============= 
-[hadoop](/hadoop/automation.md)
+[automation](/hadoop/automation.md)
