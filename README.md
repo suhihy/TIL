@@ -9,3 +9,7 @@ Mapreduce
 hiveql
 ============= 
 [hiveql](/hadoop/hiveql.md)
+
+automation
+============= 
+[hadoop](/hadoop/automation.md)
