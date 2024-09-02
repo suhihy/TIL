@@ -13,3 +13,7 @@ hiveql
 automation
 ============= 
 [automation](/hadoop/automation.md)
+
+pyspark
+============= 
+[pyspark](/hadoop/pyspark.md)
