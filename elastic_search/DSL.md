@@ -149,6 +149,8 @@ SQL "GROUP BY" 랑 유사
 "aggs": {}
 }
 ```
+## 2-1 Metric aggregation
+하나의 필드를 기준으로 집계를 내는 방식
 
 "stats" -> count, min, max, avg, sum 다 보여줌
 
@@ -197,6 +199,53 @@ SQL "GROUP BY" 랑 유사
       }
 ```
 
-## 버킷 집계
+## 2-2 버킷 집계
 = GROUP BY (묶어서 다른 context 내에서 집계)
 
+"terms" -> 필드(keyword type, 숫자)를 기준으로 묶어주는 방식
+
+결과
+```
+"buckets": [
+        {
+          "key": "Thursday",
+          "doc_count": 775
+        },
+        {
+          "key": "Friday",
+          "doc_count": 770
+        },
+        {
+          "key": "Saturday",
+          "doc_count": 736
+        },
+        {
+          "key": "Sunday",
+          "doc_count": 614
+        },
+        {
+          "key": "Tuesday",
+          "doc_count": 609
+        },
+        {
+          "key": "Wednesday",
+          "doc_count": 592
+        },
+        {
+          "key": "Monday",
+          "doc_count": 579
+        }
+```
+
+
+"range" -> 숫자, 날짜 type
+
+
+## pipeline 집계
+### 형제 집계(같은 레벨에서 수행)
+### 부모 집계(하위 항목에서 수행)
+
+
+"derivative" -> 파생 집계(미분, 변화량)
+
+"cumulative_sum" -> 누적합에 대한 정보
