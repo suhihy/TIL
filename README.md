@@ -21,3 +21,4 @@ pyspark
 elastic search
 ============= 
 [elastic search_basic](/elastic_search/data_type.md)
+[elastice search_검색, 집계](/elastic_search/DSL.md)
